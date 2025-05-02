@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jogo da Cobrinha</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="startScreen">
+      <h1>🐍 Jogo da Cobrinha</h1>
+
+      <label for="snakeColor">Escolha a cor da cobra:</label>
+      <input type="color" id="snakeColor" value="#00ff00" />
+
+      <br /><br />
+
+      <button id="startBtn">Iniciar Jogo</button>
+      <button id="toggleModeBtn">Modo: Normal</button>
+    </div>
+
+    <canvas id="game" width="400" height="400" style="display: none"></canvas>
+
+    <div id="controls" style="display: none; margin-top: 10px">
+      <button id="restartBtn">Reiniciar</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
