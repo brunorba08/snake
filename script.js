@@ -75,7 +75,6 @@ function draw() {
 
   const newHead = { x: snakeX, y: snakeY }
 
-  // Colisão
   if (
     (!isHardMode &&
       (snakeX < 0 ||
@@ -86,7 +85,32 @@ function draw() {
   ) {
     clearInterval(game)
     dieSound.play()
-    setTimeout(() => alert('Fim de jogo! Pontuação: ' + score), 100)
+
+    // Verifica se a API de Notificação está disponível
+    if ('Notification' in window) {
+      if (Notification.permission === 'granted') {
+        new Notification('🐍 Fim de Jogo!', {
+          body: `Sua pontuação: ${score}`,
+          icon: 'snake-icon.png', // Substitua pelo caminho correto do ícone
+        })
+      } else if (Notification.permission !== 'denied') {
+        Notification.requestPermission().then((permission) => {
+          if (permission === 'granted') {
+            new Notification('🐍 Fim de Jogo!', {
+              body: `Sua pontuação: ${score}`,
+              icon: 'snake-icon.png',
+            })
+          } else {
+            alert('Fim de jogo! Pontuação: ' + score)
+          }
+        })
+      } else {
+        alert('Fim de jogo! Pontuação: ' + score)
+      }
+    } else {
+      alert('Fim de jogo! Pontuação: ' + score)
+    }
+
     return
   }
 
