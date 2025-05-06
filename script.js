@@ -154,3 +154,10 @@ CanvasRenderingContext2D.prototype.roundRect = function (
   this.quadraticCurveTo(x, y, x + radius, y)
   this.closePath()
 }
+// Botão Voltar
+document.getElementById('backBtn').addEventListener('click', () => {
+  clearInterval(game)
+  document.getElementById('game').style.display = 'none'
+  document.getElementById('controls').style.display = 'none'
+  document.getElementById('startScreen').style.display = 'block'
+})

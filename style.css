@@ -42,3 +42,13 @@ input[type='color'] {
   outline: none;
   cursor: pointer;
 }
+#startScreen {
+  width: 400px;
+  height: 400px;
+  margin: auto;
+  text-align: center;
+  background-color: #111;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
